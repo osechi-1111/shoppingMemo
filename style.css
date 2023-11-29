@@ -1,0 +1,213 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 5px;
+  font-family: arial, sans-serif;
+  background-color: #fffbf4;
+}
+
+/* ヘッダー */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  background-color: #d0917c;
+  color: #ffffff;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 4;
+}
+
+.header h1 {
+  font-size: x-large;
+  font-weight: normal;
+  margin-top: 6px;
+  padding: 0;
+}
+
+/* リスト追加ボタン */
+.listAdd {
+  position: absolute;
+  top: calc((100% - 40px) / 2);
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: #ffffff;
+  text-align: center;
+  border: none;
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.listAdd:hover {
+  background-color: #e79898;
+}
+
+/* メインコンテンツ */
+.mainContent {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  padding: 15px 10px 0 10px;
+  width: 100%;
+  height: calc(100% - 50px);
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+/* メモリスト */
+.memoList h2 {
+  margin: 0 0 10px 0;
+  font-size: 25px;
+  color: #565656;
+  font-weight: normal;
+  border-bottom: 1px solid #707070;
+}
+
+.memoList div {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.memoList div a {
+  display: flex;
+  width: calc(100% - 40px);
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  padding: 5px;
+  background-color: #736357;
+  color: #ffffff;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.memoList div a span {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  width: calc(100% - 50px);
+  height: 100%;
+  font-size: 20px;
+}
+
+.memoList div button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 100%;
+  background-color: #5e513f;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.addList {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  border: none;
+  border-radius: 10px;
+  background-color: #dddddd;
+  color: #565656;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* メモタイトルダイアログ */
+.dialogMask{
+  display: none;
+}
+
+.memoTitleDialog{
+  display: none;
+}
+
+.dialogMask.active {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.memoTitleDialog.active {
+  display: block;
+  position: absolute;
+  top: 80px;
+  width: 350px;
+  height: 130px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  text-align: right;
+  z-index: 3;
+}
+
+.memoTitleDialog h2 {
+  margin: 0 0 5px 0;
+  text-align: left;
+  font-size: 20px;
+  color: #565656;
+  font-weight: normal;
+}
+
+.memoTitleDialog input {
+  display: block;
+  height: 40px;
+  width: 100%;
+  font-size: 18px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.memoTitleDialog input:focus {
+  outline: none;
+  border: 1px solid #007aff;
+  border-radius: normal;
+}
+
+.closeMemoTitleDialog {
+  width: 120px;
+  height: 35px;
+  margin: 20px 10px 0 0;
+  border: 1px solid #565656;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #565656;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.newMemo{
+  width: 120px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007aff;
+  color: #ffffff;
+  font-size: 15px;
+  box-sizing: border-box;
+}
