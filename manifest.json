@@ -1,0 +1,19 @@
+{
+  "name": "お買い物メモ",
+  "icons": [
+    {
+      "src": "./img/shoppingMemo_logo 192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/shoppingMemo_logo 512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fffbf4",
+  "theme_color": "#d0917c"
+}
