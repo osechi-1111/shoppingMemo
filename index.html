@@ -3,61 +3,171 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width,user-scalable=no" />
   <title>お買い物メモ</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
+  <!-- ヘッダー -->
   <div class="header">
-    <h1>お買い物メモ</h1>
+    <button class="backToMemoListBtn" onclick="backToMemoList()">＜</button>
+    <h1>お買い物メモアプリ</h1>
+    <button class="editBtn" onclick="edit()">
+      <img src="img/shoppingMemo_edit.png" alt="">
+    </button>
+    <button class="editCheckBtn" onclick="editCheck()">
+      <img src="img/shoppingMemo_check.png" alt="">
+    </button>
+    <button class="addList" onclick="addList()">＋</button>
   </div>
+  <!-- ダイアログマスク -->
+  <div class="dialogMask"></div>
+  <!-- ダイアログ -->
+  <div class="memoTitleDialog">
+    <h2>メモのタイトルを入力</h2>
+    <input type="text" placeholder="メモのタイトル" id="memoTitleInput" maxlength="20">
+    <button class="closeMemoTitleDialog" onclick="closeDialog()">キャンセル</button>
+    <button class="newMemo" onclick="newMemo()">新規作成</button>
+  </div>
+  <!-- メインコンテンツ -->
   <div class="mainContent">
-    <div class="dialogMask"></div>
-    <div class="memoTitleDialog">
-      <h2>メモのタイトルを入力</h2>
-      <input type="text" placeholder="メモのタイトル" id="memoTitleInput">
-      <button class="closeMemoTitleDialog" onclick="closeDialog()">キャンセル</button>
-      <button class="newMemo">新規作成</button>
-    </div>
     <div class="memoList">
-      <h2>メモ一覧</h2>
-      <div>
-        <a href="#" class="memoLink" data-tab="memo1">
-          <span id="memoTitle">日々のスーパー</span>
-        </a>
-        <button>削除</button>
-      </div>
-      <button class="addList" onclick="addList()">＋</button>
+      <h2 id="memoListH2">メモ一覧</h2>
+      <ul id="memoListUl">
+        <li class="memoListLi">
+          <span class="memoTitle">日々のスーパー</span>
+          <button class="memoDeleteButton">削除</button>
+        </li>
+        <li class="memoListLi">
+          <span class="memoTitle">明日のスーパー</span>
+          <button class="memoDeleteButton">削除</button>
+        </li>
+      </ul>
     </div>
-    <!--
-    <div class="memos">
-      <div class="achievement">
-        <div class="gauge">
-          <div class="bar"></div>
+    <div id="memos">
+      <div class="memo">
+        <!-- <h2 class="memoContentTitle">日々のスーパー</h2> -->
+        <div class="achievement">
+          <div class="gauge">
+            <div class="bar"></div>
+          </div>
+          <span class="ratio">2 / 5</span>
         </div>
-        <span class="ratio">2 / 5</span>
+        <div class="memoContent">
+          <ul id="memoList">
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">豚肉</span>
+              </li>
+            </label>
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">牛肉の細切れ</span>
+              </li>
+            </label>
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">もやし</span>
+              </li>
+            </label>
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">ごまだれ</span>
+              </li>
+            </label>
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">焼肉のタレ</span>
+              </li>
+            </label>
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">キャベツ</span>
+              </li>
+            </label>
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">木綿豆腐</span>
+              </li>
+            </label>
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">キムチ</span>
+              </li>
+            </label>
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">白菜</span>
+              </li>
+            </label>
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">牛乳</span>
+              </li>
+            </label>
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">ウインナー</span>
+              </li>
+            </label>
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">えのき</span>
+              </li>
+            </label>
+          </ul>
+        </div>
       </div>
-      <div id="memo1" class="memoContent">
-        <ul id="memoList">
-          <li>
-            <input type="checkbox">
-            <span class="buyElement">豚肉</span>
-          </li>
-          <li>
-            <input type="checkbox">
-            <span class="buyElement">牛肉の細切れ</span>
-          </li>
-          <li>
-            <input type="checkbox">
-            <span class="buyElement">もやし</span>
-          </li>
-        </ul>
+      <div class="memo">
+        <h2 class="memoContentTitle">明日のスーパー</h2>
+        <div class="achievement">
+          <div class="gauge">
+            <div class="bar"></div>
+          </div>
+          <span class="ratio">2 / 5</span>
+        </div>
+        <div class="memoContent">
+          <ul id="memoList">
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">お菓子</span>
+              </li>
+            </label>
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">牛肉の細切れ</span>
+              </li>
+            </label>
+            <label>
+              <li>
+                <input type="checkbox">
+                <span class="buyElement">もやし</span>
+              </li>
+            </label>
+          </ul>
+        </div>
       </div>
-    </div>-->
+    </div>
   </div>
-  <script src="src/addList.js" type="text/javascript"></script>
+  
+  <script src="src/addMemo.js" type="text/javascript"></script>
+  <script src="src/edit.js" type="text/javascript"></script>
 
   <script>
     if ('serviceWorker' in navigator) {
@@ -70,7 +180,7 @@
       });
     }
   </script>
-
+  
 </body>
 
 </html>
