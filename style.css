@@ -6,30 +6,120 @@ html {
 body {
   margin: 5px;
   font-family: arial, sans-serif;
-  background-color: #fffbf4;
+  background-color: #f6f6f6;
 }
 
 /* ヘッダー */
 .header {
   position: fixed;
+  display: flex;
   top: 0;
   left: 0;
   width: 100%;
   height: 50px;
   margin: 0;
   padding: 0;
-  background-color: #d0917c;
-  color: #ffffff;
-  text-align: center;
+  background-color: #f6f6f6;
+  color: #353535;
+  border-bottom: 1px solid #d3d3d3;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   z-index: 4;
 }
 
-.header h1 {
-  font-size: x-large;
-  font-weight: normal;
-  margin-top: 6px;
+.backToMemoListBtn {
+  display: none;
+  position: absolute;
+  left: 20px;
+  top: calc((100% - 35px) / 2);
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  border: none;
   padding: 0;
+  font-size: 25px;
+  line-height: 25px;
+  font-weight: 400;
+  box-sizing: border-box;
+  color: #007aff;
+}
+
+.backToMemoListBtn.active {
+  display: block;
+}
+
+.header h1 {
+  display: flex;
+  width: calc(100% - 200px);
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.editBtn{
+  display: block;
+  position: absolute;
+  top: calc((100% - 35px) / 2);
+  right: 65px;
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+  .editBtn img{
+    width: 24px;
+    height: 24px;
+  }
+
+  .editBtn.hidden{
+    display: none;
+  }
+
+.editCheckBtn{
+  display: none;
+  position: absolute;
+  top: calc((100% - 35px) / 2);
+  right: 65px;
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  border: none;
+  padding: 2px 0 0 0;
+  box-sizing: border-box;
+}
+
+  .editCheckBtn img{
+    width: 22px;
+    height: 22px;
+  }
+
+ .editCheckBtn.active{
+   display: block;
+ }
+
+.addList {
+  position: absolute;
+  top: calc((100% - 35px) / 2);
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  line-height: 32px;
+  font-size: 32px;
+  font-weight: 300;
+  box-sizing: border-box;
+  color: #007aff;
 }
 
 /* リスト追加ボタン */
@@ -60,92 +150,97 @@ body {
   position: absolute;
   top: 50px;
   left: 0;
-  padding: 15px 10px 0 10px;
+  padding: 15px 10px 10px 10px;
   width: 100%;
   height: calc(100% - 50px);
   box-sizing: border-box;
+  overflow-y: auto;
+  background-color: #ffffff;
   z-index: 1;
 }
 
 /* メモリスト */
-.memoList h2 {
-  margin: 0 0 10px 0;
-  font-size: 25px;
-  color: #565656;
-  font-weight: normal;
-  border-bottom: 1px solid #707070;
+.memoList.hidden {
+  display: none;
 }
 
-.memoList div {
+#memoListH2 {
+  margin: 0;
+  font-size: 25px;
+  line-height: 25px;
+  color: #565656;
+  font-weight: normal;
+}
+
+#memoListUl {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.memoListLi {
   position: relative;
   width: 100%;
   height: 60px;
   border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.memoList div a {
-  display: flex;
-  width: calc(100% - 40px);
-  height: 100%;
-  border-radius: 10px 0 0 10px;
-  padding: 5px;
-  background-color: #736357;
-  color: #ffffff;
-  text-decoration: none;
+  margin-top: 10px;
+  border: 1px solid #d3d3d3;
+  background-color: #f6f6f6;
   box-sizing: border-box;
 }
 
-.memoList div a span {
+.memoTitle {
   display: flex;
   align-items: center;
-  padding-left: 10px;
-  width: calc(100% - 50px);
+  padding: 0 15px;
+  cursor: pointer;
+  width: calc(100% - 45px);
   height: 100%;
   font-size: 20px;
+  color: #525252;
+  box-sizing: border-box;
 }
 
-.memoList div button {
+.memoDeleteButton {
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
   width: 45px;
   height: 100%;
-  background-color: #5e513f;
+  background-color: #e81123;
   border: none;
   border-radius: 0 10px 10px 0;
-  color: #ffffff;
   font-size: 15px;
+  padding: 0;
+  margin: 0;
+  color: #ffffff;
+  box-sizing: border-box;
 }
 
-.addList {
-  position: relative;
-  width: 100%;
-  height: 60px;
-  border: none;
-  border-radius: 10px;
-  background-color: #dddddd;
-  color: #565656;
-  font-size: 30px;
-  margin-bottom: 10px;
-}
+  .memoDeleteButton.active{
+    display: block;
+  }
 
 /* メモタイトルダイアログ */
-.dialogMask{
+.dialogMask {
   display: none;
 }
 
-.memoTitleDialog{
+.memoTitleDialog {
   display: none;
 }
 
 .dialogMask.active {
   display: block;
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 50px);
   background-color: #000000;
   opacity: 0.5;
   z-index: 2;
@@ -154,9 +249,10 @@ body {
 .memoTitleDialog.active {
   display: block;
   position: absolute;
-  top: 80px;
-  width: 350px;
-  height: 130px;
+  top: calc((100% - 190px) / 2);
+  left: 10px;
+  width: calc(100% - 40px);
+  height: 140px;
   padding: 10px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -174,9 +270,9 @@ body {
 
 .memoTitleDialog input {
   display: block;
-  height: 40px;
+  height: 45px;
   width: 100%;
-  font-size: 18px;
+  font-size: 20px;
   box-sizing: border-box;
   white-space: nowrap;
   overflow-x: scroll;
@@ -190,24 +286,123 @@ body {
 }
 
 .closeMemoTitleDialog {
-  width: 120px;
-  height: 35px;
-  margin: 20px 10px 0 0;
+  width: 130px;
+  height: 40px;
+  margin: 10px 10px 0 0;
   border: 1px solid #565656;
   border-radius: 5px;
   background-color: transparent;
   color: #565656;
-  font-size: 15px;
+  font-size: 18px;
   box-sizing: border-box;
 }
 
-.newMemo{
-  width: 120px;
-  height: 35px;
+.newMemo {
+  width: 130px;
+  height: 40px;
   border: none;
   border-radius: 5px;
   background-color: #007aff;
   color: #ffffff;
-  font-size: 15px;
+  font-size: 18px;
   box-sizing: border-box;
+}
+
+/* ゲージバー */
+.achievement {
+  width: 100%;
+  display: flex;
+}
+
+.gauge {
+  width: 85%;
+  border-radius: 10px;
+  background-color: #dddddd;
+}
+
+.bar {
+  width: calc(100% * (2 / 5));
+  height: 20px;
+  border-radius: 10px;
+  background-color: #007aff;
+}
+
+.ratio {
+  text-align: left;
+  color: #565656;
+  font-size: 20px;
+  line-height: 100%;
+  padding-left: 10px;
+  width: 15%;
+  height: 100%;
+}
+
+/* メモ */
+#memos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 10px 0 10px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.memo {
+  display: none;
+}
+
+.memo.show {
+  margin: 0 0 15px 0;
+  display: block;
+}
+
+.memoContentTitle {
+  margin: 0 0 10px 0;
+  font-size: 25px;
+  color: #565656;
+  font-weight: normal;
+  text-align: center;
+}
+
+.memoContent ul {
+  width: 100%;
+  margin: 0;
+  padding: 0px;
+  list-style: none;
+}
+
+.memoContent li {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 5px);
+  height: 35px;
+  margin: 10px 0 0 0;
+  padding: 0 0 0 5px;
+  border-bottom: 1px dashed #707070;
+}
+
+li input {
+  width: 25px;
+  height: 25px;
+  margin: 0 5px 0 0;
+  padding: 0;
+}
+
+li input[type="checkbox"]:checked+span {
+  text-decoration: line-through;
+}
+
+.buyElement {
+  line-height: 35px;
+  margin-left: 5px;
+  font-size: 25px;
+  color: #565656;
+  font-weight: normal;
+}
+
+.number {
+  font-size: 20px;
+  color: #707070;
+  font-weight: lighter;
 }
