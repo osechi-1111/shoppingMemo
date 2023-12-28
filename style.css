@@ -312,6 +312,7 @@ body {
 .achievement {
   width: 100%;
   display: flex;
+  margin-top: 5px;
 }
 
 .gauge {
